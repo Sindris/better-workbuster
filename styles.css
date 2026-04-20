@@ -1,0 +1,27 @@
+.wb-calendar-export-btn-container {
+    margin-top: 4px;
+    text-align: center;
+}
+
+.wb-calendar-export-btn {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #4285f4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.2s;
+}
+
+.wb-calendar-export-btn:hover {
+    background-color: #3367d6;
+    text-decoration: none;
+    color: white;
+}
+
+/* Ensure the button doesn't overflow the event container */
+.dhx_cal_event {
+    overflow: visible !important;
+} 

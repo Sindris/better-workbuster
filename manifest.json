@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Workbuster to Google Calendar",
+  "version": "1.0",
+  "description": "Export Workbuster events to Google Calendar",
+  "permissions": [],
+  "host_permissions": [
+    "https://secure.workbuster.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://secure.workbuster.com/portal/schedules/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+} 
