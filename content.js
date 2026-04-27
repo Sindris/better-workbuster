@@ -9,9 +9,11 @@ function log(message, data = null) {
 }
 
 // Function to format date for Google Calendar
-function formatGoogleDateTime(date) {
-    const formatted = date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    log('Formatted date for Google Calendar', { original: date, formatted });
+// Returns a "floating" time string (e.g. 20260420T080000) so it uses the time exactly as written
+function formatGoogleDateTimeLocal(dateObj) {
+    const pad = (n) => n.toString().padStart(2, '0');
+    const formatted = `${dateObj.getFullYear()}${pad(dateObj.getMonth() + 1)}${pad(dateObj.getDate())}T${pad(dateObj.getHours())}${pad(dateObj.getMinutes())}00`;
+    log('Formatted local date for Google Calendar', { original: dateObj, formatted });
     return formatted;
 }
 
@@ -36,7 +38,7 @@ function createGoogleCalendarUrl(event) {
 
     // Add dates if available
     if (event.startDateTime && event.endDateTime) {
-        const datesParam = `${formatGoogleDateTime(event.startDateTime)}/${formatGoogleDateTime(event.endDateTime)}`;
+        const datesParam = `${formatGoogleDateTimeLocal(event.startDateTime)}/${formatGoogleDateTimeLocal(event.endDateTime)}`;
         params.append('dates', datesParam);
         log('Added dates parameter', { datesParam });
     } else {
@@ -61,15 +63,23 @@ function addExportButton(eventElement, eventData) {
     
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'wb-calendar-export-btn-container';
+    buttonContainer.style.textAlign = 'left';
+    buttonContainer.style.marginTop = '8px';
     
     const exportButton = document.createElement('a');
     exportButton.href = createGoogleCalendarUrl(eventData);
     exportButton.className = 'wb-calendar-export-btn';
-    exportButton.textContent = 'Add to Google Calendar';
+    exportButton.textContent = 'Lägg till i Google Calendar';
     exportButton.target = '_blank';
     
     buttonContainer.appendChild(exportButton);
-    eventElement.appendChild(buttonContainer);
+    
+    const contentDiv = eventElement.children[1];
+    if (contentDiv) {
+        contentDiv.appendChild(buttonContainer);
+    } else {
+        eventElement.appendChild(buttonContainer);
+    }
     log('Export button added successfully');
 }
 
@@ -77,49 +87,34 @@ function addExportButton(eventElement, eventData) {
 function parseEventData(eventElement) {
     log('Parsing event data from element', { element: eventElement });
     
-    // Get the title and description from the media-body div
-    const mediaBody = eventElement.querySelector('.media-body');
-    const titleElement = mediaBody ? mediaBody.querySelector('.title') : null;
-    const noteElement = mediaBody ? mediaBody.querySelector('.note') : null;
+    const dayCard = eventElement.closest('.card.day');
+    const dateStr = dayCard ? dayCard.id : ''; // e.g. "2026-04-20"
     
-    // Get the date and time from the media-left div
-    const mediaLeft = eventElement.querySelector('.media-left');
-    const dateSpan = mediaLeft ? mediaLeft.querySelector('span:first-child') : null;
-    const timeSpan = mediaLeft ? mediaLeft.querySelector('span:nth-child(2)') : null;
+    const timeDiv = eventElement.children[0];
+    const timeRange = timeDiv ? timeDiv.textContent.trim() : '';
     
-    log('Found elements', { 
-        hasTitleElement: !!titleElement, 
-        hasNoteElement: !!noteElement,
-        hasDateSpan: !!dateSpan,
-        hasTimeSpan: !!timeSpan
-    });
+    const contentDiv = eventElement.children[1];
     
     let title = '';
     let description = '';
-    let dateStr = '';
-    let timeRange = '';
     
-    if (titleElement) {
-        title = titleElement.textContent.trim();
-        log('Extracted title', { title });
+    if (contentDiv) {
+        const titleElement = contentDiv.querySelector('strong');
+        if (titleElement) {
+            title = titleElement.textContent.trim();
+        }
+        
+        const contentClone = contentDiv.cloneNode(true);
+        const titleEl = contentClone.querySelector('strong');
+        if (titleEl) titleEl.remove();
+        const hostEl = contentClone.querySelector('span');
+        if (hostEl) hostEl.remove();
+        
+        description = contentClone.textContent.trim().replace(/\s+/g, ' ');
     }
     
-    if (noteElement) {
-        description = noteElement.textContent.trim();
-        log('Extracted description', { description });
-    }
+    log('Extracted details', { title, dateStr, timeRange, description });
     
-    if (dateSpan) {
-        dateStr = dateSpan.textContent.trim();
-        log('Extracted date', { dateStr });
-    }
-    
-    if (timeSpan) {
-        timeRange = timeSpan.textContent.trim();
-        log('Extracted time range', { timeRange });
-    }
-    
-    // Create event data object
     const eventData = {
         title: title,
         description: description,
@@ -127,41 +122,22 @@ function parseEventData(eventElement) {
         dateStr: dateStr
     };
     
-    // If we have both date and time, create DateTime objects
     if (dateStr && timeRange) {
         try {
-            // Parse the Swedish date format (e.g., "måndag 7/4")
-            const dateMatch = dateStr.match(/(\d{1,2})\/(\d{1,2})/);
-            if (dateMatch) {
-                const day = parseInt(dateMatch[1]);
-                const month = parseInt(dateMatch[2]) - 1; // JavaScript months are 0-indexed
-                const year = new Date().getFullYear(); // Default to current year
-                
-                const { start, end } = parseTimeRange(timeRange);
+            const [year, month, day] = dateStr.split('-').map(num => parseInt(num, 10));
+            const { start, end } = parseTimeRange(timeRange);
+            
+            if (start && end) {
                 const [startHour, startMinute] = start.split(':');
                 const [endHour, endMinute] = end.split(':');
                 
-                log('Parsing time components', { 
-                    start, end, 
-                    startHour, startMinute, 
-                    endHour, endMinute 
-                });
-                
-                const date = new Date(year, month, day);
-                log('Created base date object', { dateStr, date });
-                
-                eventData.startDateTime = new Date(date);
-                eventData.startDateTime.setHours(parseInt(startHour), parseInt(startMinute));
-                
-                eventData.endDateTime = new Date(date);
-                eventData.endDateTime.setHours(parseInt(endHour), parseInt(endMinute));
+                eventData.startDateTime = new Date(year, month - 1, day, parseInt(startHour, 10), parseInt(startMinute, 10));
+                eventData.endDateTime = new Date(year, month - 1, day, parseInt(endHour, 10), parseInt(endMinute, 10));
                 
                 log('Created DateTime objects', { 
                     startDateTime: eventData.startDateTime, 
                     endDateTime: eventData.endDateTime 
                 });
-            } else {
-                log('Could not parse date from string', { dateStr });
             }
         } catch (error) {
             log('Error creating DateTime objects', { error: error.message });
@@ -177,7 +153,7 @@ function parseEventData(eventElement) {
 // Main function to process all events
 function processEvents() {
     log('Processing events');
-    const events = document.querySelectorAll('.media');
+    const events = document.querySelectorAll('#event-list .card.day > .flex-container');
     log(`Found ${events.length} events`);
     
     events.forEach((eventElement, index) => {
@@ -195,28 +171,30 @@ processEvents();
 
 // Create a MutationObserver to watch for new events
 log('Setting up MutationObserver');
+let debounceTimer = null;
+
 const observer = new MutationObserver((mutations) => {
-    log('Mutation detected', { 
-        mutationCount: mutations.length,
-        addedNodes: mutations.reduce((count, m) => count + m.addedNodes.length, 0)
-    });
-    
-    mutations.forEach((mutation) => {
+    let shouldProcess = false;
+    for (const mutation of mutations) {
         if (mutation.addedNodes.length) {
-            log('New nodes added, reprocessing events');
-            processEvents();
+            shouldProcess = true;
+            break;
         }
-    });
+    }
+    
+    if (shouldProcess) {
+        log('New nodes added, queuing event reprocessing');
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            processEvents();
+        }, 300); // 300ms debounce
+    }
 });
 
-// Start observing the event list container
-const eventListContainer = document.querySelector('#event-list');
-if (eventListContainer) {
-    log('Found event list container, starting observation');
-    observer.observe(eventListContainer, {
-        childList: true,
-        subtree: true
-    });
-} else {
-    log('Event list container not found, observer not started');
-} 
+// Start observing a higher level container since Livewire might replace the entire #event-list
+const appContainer = document.querySelector('.main-container') || document.body;
+log('Found main container, starting observation');
+observer.observe(appContainer, {
+    childList: true,
+    subtree: true
+}); 

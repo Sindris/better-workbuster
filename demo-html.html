@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="jjPvu1qPvQIulj4l3niYFMXVnTlddWBZEeiTaDKr">
+    <meta name="robots" content="noindex">
+    <title>Deltagarportal | Arenakoncernen</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5">
+    <link rel="manifest" href="/manifest.webmanifest?v=5">
+    <link rel="shortcut icon" href="/favicon.ico?v=5">
+    <meta name="msapplication-TileColor" content="#C44F51">
+    <meta name="theme-color" content="#C44F51">
+
+    <link rel="preload" as="style" href="https://secure.workbuster.com/build/assets/app-CQoqJR7C.css" />
+    <link rel="preload" as="style" href="https://secure.workbuster.com/build/assets/portal-B_0f6EF8.css" />
+    <link rel="stylesheet" href="https://secure.workbuster.com/build/assets/app-CQoqJR7C.css"
+        data-navigate-track="reload" />
+    <link rel="stylesheet" href="https://secure.workbuster.com/build/assets/portal-B_0f6EF8.css"
+        data-navigate-track="reload" /> <!-- Livewire Styles -->
+    <style>
+        [wire\:loading][wire\:loading],
+        [wire\:loading\.delay][wire\:loading\.delay],
+        [wire\:loading\.list-item][wire\:loading\.list-item],
+        [wire\:loading\.inline-block][wire\:loading\.inline-block],
+        [wire\:loading\.inline][wire\:loading\.inline],
+        [wire\:loading\.block][wire\:loading\.block],
+        [wire\:loading\.flex][wire\:loading\.flex],
+        [wire\:loading\.table][wire\:loading\.table],
+        [wire\:loading\.grid][wire\:loading\.grid],
+        [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {
+            display: none;
+        }
+
+        [wire\:loading\.delay\.none][wire\:loading\.delay\.none],
+        [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest],
+        [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter],
+        [wire\:loading\.delay\.short][wire\:loading\.delay\.short],
+        [wire\:loading\.delay\.default][wire\:loading\.delay\.default],
+        [wire\:loading\.delay\.long][wire\:loading\.delay\.long],
+        [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer],
+        [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {
+            display: none;
+        }
+
+        [wire\:offline][wire\:offline] {
+            display: none;
+        }
+
+        [wire\:dirty]:not(textarea):not(input):not(select) {
+            display: none;
+        }
+
+        :root {
+            --livewire-progress-bar-color: #2299dd;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+
+        [wire\:cloak] {
+            display: none !important;
+        }
+
+        dialog#livewire-error::backdrop {
+            background-color: rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body class="section-portal page-portal-schedules" id="app">
+
+    <div id="navbar-header">
+
+        <div class="recruiter-logo">
+            <img src="https://matcha-production-public.s3.eu-north-1.amazonaws.com/account/1121/2025-12-16_rwoLU7e7Yi.jpg"
+                alt="Arenakoncernen" />
+        </div>
+
+
+        <div class="dropdown">
+            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="background: none; border: none; padding: 0;">
+                <span style="margin-right: 5px;">Abhinav Gaurav</span>
+                <img src="/img/svg/genderless-avatar.svg?v=2" class="avatar profile-img" aria-hidden="true"
+                    alt="Profilbild">
+            </button>
+            <ul class="dropdown-menu" id="profile-dropdown-wrapper" style="right: 0; left: unset; margin-top: 5px;">
+                <li><a href="https://secure.workbuster.com/portal/profile">Profil</a></li>
+                <li><a href="https://secure.workbuster.com/portal/logout">
+                        <i class="fal fa-sign-out"></i>
+                        Logga ut
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <nav id="sidebar">
+        <img src="https://matcha-production-public.s3.eu-north-1.amazonaws.com/account/1121/2025-12-16_rwoLU7e7Yi.jpg"
+            alt="Arenakoncernen" class="recruiter-logo" />
+
+        <div class="inbox ">
+            <a href="https://secure.workbuster.com/portal/inbox">
+                <i class="fal fa-fw fa-envelope" aria-hidden="true"></i>
+                <span>Meddelanden</span>
+            </a>
+        </div>
+
+        <div class="active">
+            <a href="https://secure.workbuster.com/portal/schedules#2026-04-22">
+                <i class="fal fa-fw fa-calendar-alt" aria-hidden="true"></i>
+                <span>Schema</span>
+            </a>
+        </div>
+        <div class="">
+            <a href="https://secure.workbuster.com/portal/documents">
+                <i class="fal fa-fw fa-file-alt" aria-hidden="true"></i>
+                <span>Dokument</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="main-container" style="padding-bottom: 50px; padding-top: 50px;">
+
+
+        <div class="text-bolder" style="font-size: 16px; padding-bottom: 5px;">
+            <a href="https://secure.workbuster.com/portal/schedules" style="color: inherit;">Schema</a> /
+            Arena matchning Malmö ROM2 - Mona
+
+            <span style="vertical-align: middle; margin-left: 10px;">
+                <form action="https://secure.workbuster.com/portal/update-participant-settings" method="post"
+                    style="display: inline-block;">
+                    <input type="hidden" name="_token" value="jjPvu1qPvQIulj4l3niYFMXVnTlddWBZEeiTaDKr"
+                        autocomplete="off"> <button type="submit" class="btn btn-default">Visa som kalender</button>
+                </form>
+            </span>
+        </div>
+
+        <div style="max-width: 600px;">
+            <div wire:key="lw-563138095-0"
+                wire:snapshot="{&quot;data&quot;:{&quot;decisionId&quot;:6561217,&quot;date&quot;:&quot;2026-04-20&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;TbfmOV1luwVJUfAoYChI&quot;,&quot;name&quot;:&quot;portal.schedule-list&quot;,&quot;path&quot;:&quot;portal\/schedules\/6561217&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;sv&quot;,&quot;islands&quot;:[]},&quot;checksum&quot;:&quot;70ad5b1dad6f858455832b9bb87cfab53bfe320966e04d3f648c50bb78de3462&quot;}"
+                wire:effects="{&quot;url&quot;:{&quot;date&quot;:{&quot;as&quot;:null,&quot;use&quot;:&quot;push&quot;,&quot;alwaysShow&quot;:false,&quot;except&quot;:null}}}"
+                wire:id="TbfmOV1luwVJUfAoYChI" wire:name="portal.schedule-list">
+                <div>
+                    <div id="calendar" class="card">
+                        <div class="flex-container space-between items-center">
+                            April, Vecka 17
+                            <div>
+                                <button wire:click="previousWeek" class="btn btn-link" title="Föregående vecka"><i
+                                        class="fal fa-chevron-left" aria-hidden="true"></i></button>
+                                <button wire:click="showToday" class="btn btn-link">Idag</button>
+                                <button wire:click="nextWeek" class="btn btn-link" title="Nästa vecka"><i
+                                        class="fal fa-chevron-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="flex-container space-between">
+                            <!--[if BLOCK]><![endif]--> <a href="#2026-04-20" class="flex-container flex-column day ">
+                                <span>må</span>
+                                <span>20</span>
+                            </a>
+                            <a href="#2026-04-21" class="flex-container flex-column day ">
+                                <span>ti</span>
+                                <span>21</span>
+                            </a>
+                            <a href="#2026-04-22" class="flex-container flex-column day  today ">
+                                <span>on</span>
+                                <span>22</span>
+                            </a>
+                            <a href="#2026-04-23" class="flex-container flex-column day ">
+                                <span>to</span>
+                                <span>23</span>
+                            </a>
+                            <a href="#2026-04-24" class="flex-container flex-column day ">
+                                <span>fr</span>
+                                <span>24</span>
+                            </a>
+                            <!--[if ENDBLOCK]><![endif]-->
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div id="event-list">
+                        <!--[if BLOCK]><![endif]-->
+                        <div id="2026-04-20" class="card day ">
+                            <h3>
+                                Måndag 20/04
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            </h3>
+
+                            <!--[if BLOCK]><![endif]-->
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    08:00 - 12:00
+                                </div>
+                                <div style="border-left: 3px solid #c2c2c2; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Information om
+                                        arbetsmarknaden - Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Aktiviteten syftar till att ge information om arbetsmarknaden och arbetslivet. Det
+                                    kan bestå av orientering inom olika yrkesområden, information om utbildning och dess
+                                    betydelse för etablering på arbetsmarknaden. Använd aktivt bl a Arbetsförmedlingens
+                                    hemsida för aktiviteten <a href="https://arbetsformedlingen.se/"
+                                        target="_blank">arbetsformedlingen.s…</a>
+                                </div>
+                            </div>
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    13:00 - 17:00
+                                </div>
+                                <div style="border-left: 3px solid #4986e7; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Vägledning mot
+                                        utökad förståelse för arbetsmarknaden - Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Aktiviteten syftar till att ge information om arbetsmarknaden och hur läget ser ut i
+                                    nuläget. Var finns jobben? Vilka branscher söker folk just nu? Viktigt att hålla sig
+                                    uppdaterad för att kunna anpassa sitt jobbsökande och därmed öka chanserna. Använd
+                                    aktivt bl a Arbetsförmedlingens hemsida för aktiviteten <a
+                                        href="https://arbetsformedlingen.se/" target="_blank">arbetsformedlingen.s…</a>
+                                </div>
+                            </div>
+                            <!--[if ENDBLOCK]><![endif]-->
+                        </div>
+                        <div id="2026-04-21" class="card day ">
+                            <h3>
+                                Tisdag 21/04
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            </h3>
+
+                            <!--[if BLOCK]><![endif]-->
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    08:00 - 12:00
+                                </div>
+                                <div style="border-left: 3px solid #fa573c; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Webbinar -
+                                        Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Genomför ett valfritt webbinarium från Arbetsförmedlingens hemsida som kan vara
+                                    relevant för ditt jobbsökande. Anslut via länken <a
+                                        href="https://arbetsformedlingen.se/play/webbinarium#query/"
+                                        target="_blank">arbetsformedlingen.s…</a>*. Informera din handledare i nästa
+                                    individuella möte om vilket du valde och vad det handlade om för att få hjälp med
+                                    att anpassa information till ditt jobbsökande.
+                                </div>
+                            </div>
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    13:00 - 17:00
+                                </div>
+                                <div style="border-left: 3px solid #7bd148; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Kartläggning -
+                                        Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Kartlägg utifrån informationen du samlade in under föregående dagar vilka branscher
+                                    och yrken du kan söka till för att bredda ditt jobbsökande. Ta stöd av din
+                                    handledare för att bolla idéer.
+                                </div>
+                            </div>
+                            <!--[if ENDBLOCK]><![endif]-->
+                        </div>
+                        <div id="2026-04-22" class="card day  today ">
+                            <h3>
+                                Onsdag 22/04
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            </h3>
+
+                            <!--[if BLOCK]><![endif]-->
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    08:00 - 12:00
+                                </div>
+                                <div style="border-left: 3px solid #4986e7; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Information om
+                                        studier - Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Undersök möjligheterna till studier som tex yrkesutbildningar eller andra
+                                    utbildningar på högskolenivå. Prata med din handledare för vägledning. Använd länken
+                                    för stöd i denna aktivitet <a
+                                        href="https://arbetsformedlingen.se/for-arbetssokande/utbildning-och-studier"
+                                        target="_blank">arbetsformedlingen.s…</a>
+                                </div>
+                            </div>
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    13:00 - 17:00
+                                </div>
+                                <div style="border-left: 3px solid #4986e7; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Information om
+                                        studier - Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Undersök möjligheterna till studier som tex yrkesutbildningar eller andra
+                                    utbildningar på högskolenivå. Prata med din handledare för vägledning. Använd länken
+                                    för stöd i denna aktivitet <a
+                                        href="https://arbetsformedlingen.se/for-arbetssokande/utbildning-och-studier"
+                                        target="_blank">arbetsformedlingen.s…</a>
+                                </div>
+                            </div>
+                            <!--[if ENDBLOCK]><![endif]-->
+                        </div>
+                        <div id="2026-04-23" class="card day ">
+                            <h3>
+                                Torsdag 23/04
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            </h3>
+
+                            <!--[if BLOCK]><![endif]-->
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    08:00 - 12:00
+                                </div>
+                                <div style="border-left: 3px solid #4986e7; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Information om
+                                        dolda jobb - Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Inkludera rekommendationerna från länkarna nedan i ditt jobbsökande! <a
+                                        href="https://arbetsformedlingen.se/for-arbetssokande/tips-inspiration-och-nyheter/artiklar/2025-01-22-sa-hittar-du-de-dolda-jobben"
+                                        target="_blank">arbetsformedlingen.s…</a>. <a
+                                        href="https://arbetsformedlingen.se/play/webbinarium/sa-hittar-du-de-dolda-jobben"
+                                        target="_blank">arbetsformedlingen.s…</a>
+                                </div>
+                            </div>
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    10:00 - 11:00
+                                </div>
+                                <div style="border-left: 3px solid #f83a22; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Gruppaktivitet -
+                                        På plats (på kontoret)</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Martin Gustafsson</span>
+                                    Obligatoriskt! Jobbsök - Passa på att få ett praktiskt stöd på plats av en
+                                    handledare. Det kan till exempel gälla ett personligt brev, en arbetsgivare som
+                                    väntar respons av dig och du behöver därför hjälp med att formulera svaret, stöd i
+                                    att uppdatera din profil på olika plattformar eller annat du behöver hjälp med i
+                                    ditt jobbsökande.
+                                </div>
+                            </div>
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    13:00 - 17:00
+                                </div>
+                                <div style="border-left: 3px solid #c2c2c2; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Eget arbetssökande
+                                        - Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Sök jobben du hittade under förmiddagens aktivitet.
+                                </div>
+                            </div>
+                            <!--[if ENDBLOCK]><![endif]-->
+                        </div>
+                        <div id="2026-04-24" class="card day ">
+                            <h3>
+                                Fredag 24/04
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            </h3>
+
+                            <!--[if BLOCK]><![endif]-->
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    08:00 - 12:00
+                                </div>
+                                <div style="border-left: 3px solid #4986e7; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Övrigt -
+                                        Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Strukturera och organisera ditt jobbsökande inför nästa vecka. Vad ska du prioritera
+                                    utifrån planen med din handledare. Vad behöver du förbereda idag? Har någon
+                                    arbetsgivare hört av sig som du måste svara på? Följ upp veckans sökta jobb för att
+                                    inte missa nåt nytt i processen. Viktigt att föra dokumentation på sökta jobb för
+                                    att underlätta när det väl är dags för uppföljningen med din handledare.
+                                </div>
+                            </div>
+                            <div class="flex-container" style="margin: 10px 0;">
+                                <div style="min-width: 90px; margin-right: 10px;">
+                                    13:00 - 17:00
+                                </div>
+                                <div style="border-left: 3px solid #4986e7; padding-left: 5px;">
+                                    <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--> <strong>Eget arbete -
+                                        Distans</strong>
+                                    <span><i class="fal fa-user" aria-hidden="true"></i> Mona El Foli</span>
+                                    Strukturera och organisera ditt jobbsökande inför nästa vecka. Vad ska du prioritera
+                                    utifrån planen med din handledare. Vad behöver du förbereda idag? Har någon
+                                    arbetsgivare hört av sig som du måste svara på? Följ upp veckans sökta jobb för att
+                                    inte missa nåt nytt i processen. Viktigt att föra dokumentation på sökta jobb för
+                                    att underlätta när det väl är dags för uppföljningen med din handledare.
+                                </div>
+                            </div>
+                            <!--[if ENDBLOCK]><![endif]-->
+                        </div>
+                        <!--[if ENDBLOCK]><![endif]-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            button[disabled] {
+                opacity: 0.5;
+            }
+        </style>
+    </div>
+
+
+    <nav id="footer-navbar">
+
+        <div class="inbox ">
+            <a href="https://secure.workbuster.com/portal/inbox">
+                <i class="fal fa-fw fa-envelope" aria-hidden="true"></i>
+                <span>Meddelanden</span>
+            </a>
+        </div>
+
+        <div class="active">
+            <a href="https://secure.workbuster.com/portal/schedules#2026-04-22">
+                <i class="fal fa-fw fa-calendar-alt" aria-hidden="true"></i>
+                <span>Schema</span>
+            </a>
+        </div>
+        <div class="">
+            <a href="https://secure.workbuster.com/portal/documents">
+                <i class="fal fa-fw fa-file-alt" aria-hidden="true"></i>
+                <span>Dokument</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        window.flashMessageText = '';
+        window.flashMessageType = '';
+        window['user'] = { "id": 4926314, "type": "Participant", "recruiter_id": 1121 };
+    </script>
+    <link rel="preload" as="style" href="https://secure.workbuster.com/build/assets/vendor-oXjNTfVE.css" />
+    <link rel="modulepreload" as="script" href="https://secure.workbuster.com/build/assets/app-fNqaYjzK.js" />
+    <link rel="modulepreload" as="script"
+        href="https://secure.workbuster.com/build/assets/rolldown-runtime-BjacGwfe.js" />
+    <link rel="modulepreload" as="script" href="https://secure.workbuster.com/build/assets/sentry-GPqW7Xpf.js" />
+    <link rel="modulepreload" as="script"
+        href="https://secure.workbuster.com/build/assets/bootstrap-jquery-9vSIlU6-.js" />
+    <link rel="modulepreload" as="script" href="https://secure.workbuster.com/build/assets/vendor-CcTmlJfP.js" />
+    <link rel="modulepreload" as="script" href="https://secure.workbuster.com/build/assets/libs-l0iAPyit.js" />
+    <link rel="modulepreload" as="script" href="https://secure.workbuster.com/build/assets/portal-D0nCL4M_.js" />
+    <link rel="stylesheet" href="https://secure.workbuster.com/build/assets/vendor-oXjNTfVE.css"
+        data-navigate-track="reload" />
+    <script type="module" src="https://secure.workbuster.com/build/assets/app-fNqaYjzK.js"
+        data-navigate-track="reload"></script>
+    <script type="module" src="https://secure.workbuster.com/build/assets/portal-D0nCL4M_.js"
+        data-navigate-track="reload"></script>
+    <script src="https://secure.workbuster.com/vendor/livewire/livewire.min.js?id=6b3709b1"
+        data-csrf="jjPvu1qPvQIulj4l3niYFMXVnTlddWBZEeiTaDKr"
+        data-module-url="https://secure.workbuster.com/livewire-eed9177e"
+        data-update-uri="https://secure.workbuster.com/livewire-eed9177e/update" data-navigate-once="true"></script>
+</body>
+
+</html>
